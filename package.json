@@ -9,8 +9,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "vite build && node scripts/build-gate.mjs",
-    "build:single": "cross-env SINGLE_FILE=1 vite build && node scripts/finalize-single.mjs && node scripts/build-gate.mjs dist-single",
+    "build": "vite build && node scripts/build-gate.mjs && node scripts/smoke-build.mjs",
+    "build:single": "cross-env SINGLE_FILE=1 vite build && node scripts/finalize-single.mjs && node scripts/build-gate.mjs dist-single && node scripts/smoke-build.mjs dist-single",
     "preview": "vite preview",
     "ci": "npm run typecheck && npm test && npm run build"
   },
