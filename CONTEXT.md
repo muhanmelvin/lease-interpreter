@@ -50,4 +50,38 @@ public example. Never a real client's lease, site, or numbers.
 
 ## This app's vocabulary
 
-_TODO — add terms as they settle._
+**Draft abstract** — the structured JSON an AI produces from the extraction
+prompt: per field a value, the exact supporting quote, and a CLEAR/AMBIGUOUS
+marker. A draft is not an abstract until a person has confirmed every field
+against the lease.
+
+**Flag, don't guess** — the extraction contract: where the clause honestly
+supports more than one reading, the drafter marks the field AMBIGUOUS and
+states the competing readings, never choosing. An ambiguity surfaced is a
+finding; an ambiguity papered over is a liability.
+
+**The three verdicts** — every reviewed field is *filled-correct* (value
+right, quote checks out), *flagged* (an ambiguity a human would also raise —
+good output), or *missed* (wrong value, stated confidently — the dangerous
+quadrant, and the reason quotes get checked).
+
+**The seven flags** — the ambiguity taxonomy, copied verbatim from the
+AuditAbstract schema: BASIS_UNCLEAR, METHOD_UNSTATED, FIRST_YEAR_UNDEFINED,
+CARVE_OUT_SCOPE, FEE_TREATMENT_UNSTATED, PARTIAL_YEAR_SILENT,
+CARRY_PRECISION_UNSTATED.
+
+**The spread** — the dollar difference between competing readings, computed
+by running each reading's cap ladder over the same expense series. The
+comparison table is itself a negotiation exhibit.
+
+**The notwithstanding hunt** — the search for every "notwithstanding" proviso
+touching operating costs. Six words in a rider can invalidate an abstract
+built from a single section; the demo's Rider R-9 is the planted example.
+
+**Resolution** — a person's recorded decision on one AMBIGUOUS field: the
+reading chosen and why. Exports carry a **draft — unconfirmed** watermark
+until every ambiguity has one.
+
+**LeaseLite export** — the lease-terms JSON in the Red-Flag Scanner's own
+shape (copied, never imported), so confirmed terms can one day be imported
+there instead of typed.
