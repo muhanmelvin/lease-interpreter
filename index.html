@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Privacy by construction: this page can load only itself. No connections,
+         no third-party scripts, no fonts, no images from anywhere else. The
+         single-file build adds per-script SHA-256 hashes to script-src; see
+         scripts/finalize-single.mjs. Do not add 'unsafe-inline' to script-src. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Build a flag-don't-guess extraction prompt, run it in your own AI, paste the draft back — this page validates it, walks the confirmation, prices every ambiguity in dollars, and exports lease-terms JSON. Entirely in your browser." />
+    <title>Lease Interpreter</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%231f5c7a'/%3E%3Cpath d='M9 7h3v18H9zM12 8l11 4-11 4z' fill='%23fff'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ══ SITE NAV — keep this block identical across every app ══════════════
+         Plain links, no shared JS, no build-time dependency between repos.
+         When you change it, change it in all of them.
+         Uncomment an app only once it is actually live — a link to a subdomain
+         with no site behind it is a visible bug on every page that carries this
+         header. Add aria-current="page" to this app's own link. -->
+    <nav class="site-nav" aria-label="Other tools">
+      <a class="site-brand" href="https://petriumalpha.com/">Melvin Muhan</a>
+      <ul class="site-nav-list">
+        <li><a href="https://scanner.petriumalpha.com/">Red-Flag Scanner</a></li>
+        <!-- <li><a href="https://captrap.petriumalpha.com/">Cap Trap Explorer</a></li> -->
+        <!-- <li><a href="https://interpreter.petriumalpha.com/" aria-current="page">Lease Interpreter</a></li> -->
+        <!-- <li><a href="https://deadlines.petriumalpha.com/">Deadline Calculator</a></li> -->
+      </ul>
+    </nav>
+    <!-- ══ end site nav ══════════════════════════════════════════════════════ -->
+
+    <header class="masthead">
+      <div class="wrap masthead-inner">
+        <p class="eyebrow">Lease audit &middot; Clause reading</p>
+        <h1>What does this cap clause actually say?</h1>
+        <p class="standfirst">
+          Badly drafted cap language has several defensible readings, and someone at the management
+          company has already picked one &mdash; in software, in their favour. This page builds a
+          flag-don&rsquo;t-guess extraction prompt for the AI you already use, checks the draft that
+          comes back quote by quote, prices every ambiguity in dollars, and exports the confirmed
+          terms as JSON. <strong>The AI reads; it never computes a number on this page.</strong>
+        </p>
+        <div class="provenance">
+          <span>Deterministic &mdash; no AI in the arithmetic</span>
+          <span>Runs entirely in this page; no server, no upload</span>
+          <span>Synthetic leases only &mdash; no client data</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" id="main">
+      <div id="app"></div>
+    </main>
+
+    <footer class="site-foot">
+      <div class="wrap">
+        <p>
+          Synthetic data only. This tool is illustrative and is not legal or accounting advice.
+          <a href="https://github.com/muhanmelvin/lease-interpreter">Source on GitHub</a>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/ui/main.ts"></script>
+  </body>
+</html>
