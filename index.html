@@ -26,41 +26,51 @@
          with no site behind it is a visible bug on every page that carries this
          header. Add aria-current="page" to this app's own link. -->
     <nav class="site-nav" aria-label="Other tools">
-      <a class="site-brand" href="https://petriumalpha.com/">Melvin Muhan</a>
+      <a class="site-brand" href="https://petriumalpha.com/"><span class="brand-mark" aria-hidden="true"><span class="icon icon-landmark"></span></span>Melvin Muhan</a>
       <ul class="site-nav-list">
+        <li><a href="https://foundry.petriumalpha.com/">Recon Foundry</a></li>
         <li><a href="https://scanner.petriumalpha.com/">Red-Flag Scanner</a></li>
-        <!-- <li><a href="https://captrap.petriumalpha.com/">Cap Trap Explorer</a></li> -->
+        <li><a href="https://captrap.petriumalpha.com/">Cap Trap Explorer</a></li>
+        <li><a href="https://deadlines.petriumalpha.com/">Deadline Calculator</a></li>
         <!-- <li><a href="https://interpreter.petriumalpha.com/" aria-current="page">Lease Interpreter</a></li> -->
-        <!-- <li><a href="https://deadlines.petriumalpha.com/">Deadline Calculator</a></li> -->
       </ul>
     </nav>
     <!-- ══ end site nav ══════════════════════════════════════════════════════ -->
 
     <header class="masthead">
       <div class="wrap masthead-inner">
-        <p class="eyebrow">Lease audit &middot; Clause reading</p>
-        <h1>What does this cap clause actually say?</h1>
-        <p class="standfirst">
-          Badly drafted cap language has several defensible readings, and someone at the management
-          company has already picked one &mdash; in software, in their favour. This page builds a
-          flag-don&rsquo;t-guess extraction prompt for the AI you already use, checks the draft that
-          comes back quote by quote, prices every ambiguity in dollars, and exports the confirmed
-          terms as JSON. <strong>The AI reads; it never computes a number on this page.</strong>
-        </p>
-        <div class="provenance">
-          <span>Deterministic &mdash; no AI in the arithmetic</span>
-          <span>Runs entirely in this page; no server, no upload</span>
-          <span>Synthetic leases only &mdash; no client data</span>
+        <div class="masthead-copy">
+          <p class="eyebrow">Lease audit &middot; Clause reading</p>
+          <h1>What does this cap clause actually say?</h1>
+          <p class="standfirst">
+            Badly drafted cap language has several defensible readings, and someone at the management
+            company has already picked one &mdash; in software, in their favour. This page builds a
+            flag-don&rsquo;t-guess extraction prompt for the AI you already use, checks the draft that
+            comes back quote by quote, prices every ambiguity in dollars, and exports the confirmed
+            terms as JSON. <strong>The AI reads; it never computes a number on this page.</strong>
+          </p>
+          <div class="provenance">
+            <span><span class="icon icon-dice-5" aria-hidden="true"></span>Deterministic &mdash; no AI in the arithmetic</span>
+            <span><span class="icon icon-shield-check" aria-hidden="true"></span>Runs entirely in this page; no server, no upload</span>
+            <span><span class="icon icon-file-lock" aria-hidden="true"></span>Synthetic leases only &mdash; no client data</span>
+          </div>
         </div>
+        <!-- An illustration goes here when the app has one: a 640×640 WebP under
+             src/ui/, bundled by Vite and inlined in the single-file build (public/
+             would not inline). Decorative; the copy beside it carries the meaning.
+             <img class="hero-art" src="./src/ui/hero.webp" width="640" height="640" alt="…" /> -->
       </div>
     </header>
 
     <main class="wrap" id="main">
-      <div id="app"></div>
+      <section class="app-card" aria-labelledby="app-title">
+        <div id="app"></div>
+      </section>
     </main>
 
     <footer class="site-foot">
-      <div class="wrap">
+      <div class="wrap site-foot-inner">
+        <span class="icon icon-info site-foot-icon" aria-hidden="true"></span>
         <p>
           Synthetic data only. This tool is illustrative and is not legal or accounting advice.
           <a href="https://github.com/muhanmelvin/lease-interpreter">Source on GitHub</a>

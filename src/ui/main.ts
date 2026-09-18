@@ -104,6 +104,11 @@ function copyText(text: string, button: HTMLButtonElement): void {
 
 // ── Step 1: build the prompt ────────────────────────────────────────────────
 
+/** A panel's title, with the drawn mark that says what kind of panel it is. */
+function heading(icon: string, text: string): HTMLElement {
+  return h("h3", { class: "panel-title" }, h("span", { class: "h3-icon", "aria-hidden": "true" }, h("span", { class: "icon icon-" + icon })), text);
+}
+
 function renderStep1(): HTMLElement {
   const prompt = buildPrompt({ huntNotwithstanding: state.huntNotwithstanding });
   const copyBtn = h("button", { class: "ghost", type: "button" }, "Copy the prompt");
@@ -118,8 +123,8 @@ function renderStep1(): HTMLElement {
 
   return h(
     "section",
-    { class: "zone step" },
-    h("h2", { class: "zone-title" }, "Step 1 — Build the prompt"),
+    { class: "panel" },
+    heading("pencil-line", "Step 1 — Build the prompt"),
     h(
       "p",
       { class: "step-note" },
@@ -207,8 +212,8 @@ function renderStep2(): HTMLElement {
 
   return h(
     "section",
-    { class: "zone step" },
-    h("h2", { class: "zone-title" }, "Step 2 — Paste the draft"),
+    { class: "panel" },
+    heading("clipboard-paste", "Step 2 — Paste the draft"),
     ta,
     h(
       "div",
@@ -435,8 +440,8 @@ function renderStep3(): HTMLElement | null {
 
   return h(
     "section",
-    { class: "zone step" },
-    h("h2", { class: "zone-title" }, "Step 3 — Confirm, field by field"),
+    { class: "panel" },
+    heading("shield-check", "Step 3 — Confirm, field by field"),
     h(
       "p",
       { class: "step-note" },
@@ -486,8 +491,8 @@ function renderStep4(): HTMLElement | null {
 
   return h(
     "section",
-    { class: "zone step" },
-    h("h2", { class: "zone-title" }, "Step 4 — Take it away"),
+    { class: "panel" },
+    heading("download", "Step 4 — Take it away"),
     confirmed
       ? h("p", { class: "ok-box" }, "Every ambiguity carries a person's resolution. The exports are confirmed.")
       : h("p", { class: "warn-box" }, `${DRAFT_WATERMARK} — still open: ${open.join(", ")}.`),
@@ -554,13 +559,16 @@ function renderColophon(): HTMLElement {
 function renderAll(): void {
   const root = $("app");
   clear(root);
-  root.appendChild(renderStep1());
-  root.appendChild(renderStep2());
+  root.appendChild(h("div", { class: "app-head" }, h("h2", { id: "app-title" }, "Lease Interpreter")));
+  const body = h("div", { class: "app-body" });
+  root.appendChild(body);
+  body.appendChild(renderStep1());
+  body.appendChild(renderStep2());
   const s3 = renderStep3();
-  if (s3) root.appendChild(s3);
+  if (s3) body.appendChild(s3);
   const s4 = renderStep4();
-  if (s4) root.appendChild(s4);
-  root.appendChild(renderColophon());
+  if (s4) body.appendChild(s4);
+  body.appendChild(renderColophon());
 }
 
 renderAll();

@@ -58,3 +58,10 @@ and give every number its arithmetic. Terms used in the UI belong in
 Moved here from `Lease Audit Projects\CLAUDE.md` on 2026-09-07; the one-line index entry there points to this section.
 
 the Lease Interpreter repo, fifth app on the showcase (built 2026-08-28, same plan; **v1.0 code-complete locally, NOT pushed**). **`lease-interpreter\melvin_sandbox\RESUME.md` is the authority on state and ship steps** (CNAME `interpreter`). The spec's "LLM drafts, human confirms, engine computes" workflow as a static page, shaped **prompt-out/JSON-back** because the family CSP forbids any in-browser AI call: build the flag-don't-guess extraction prompt (byte-stable, pinned), run it in your own AI, paste the draft JSON back; a hand-rolled validator (no AJV; a filled field must cite its clause) gates it, the confirmation walk shows every quote with CLEAR/AMBIGUOUS badges, and each ambiguity's competing readings are **priced side by side by a deterministic cap ladder** (trimmed copy of cap-trap-explorer's engine at `c0f1b78`; float dollars by its own `docs/adr/0001`) — the demo's first-year readings sit **$1,203,304 apart** on the same 5% clause. Seven-flag taxonomy copied verbatim from the AuditAbstract schema. Exports carry a **draft — unconfirmed** watermark until every ambiguity has a recorded human resolution; the LeaseLite-shaped export is the seed of the scanner's v2 "lease_lite derived, not typed" line, with the scanner-side import (and its fixture pair, consumer-side per INTERCHANGE.md) **deliberately deferred**. The bundled demo (Appendix B §B-1/§B-2, synthetic) runs the whole flow offline and plants one **miss** on `basis` — wrong value, stated CLEAR, quote cut short. Same gate family; dev port **5177**. Will live at https://interpreter.petriumalpha.com.
+
+## Design
+
+The page chrome — `src/shared/` (tokens, chrome, controls, icons), the site-nav
+block in `index.html`, the card the app sits in and panel titles from
+`heading(icon, text)` — matches recon-foundry. Recon Foundry's `DESIGN.md` is the
+family's design record; there is no separate one here.

@@ -7,15 +7,7 @@
   color: var(--ink-muted);
 }
 
-/* ── Steps ────────────────────────────────────────────────────────────────── */
-.step {
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-  background: var(--surface);
-  padding: 14px 18px 18px;
-  margin: 16px 0;
-  box-shadow: var(--shadow);
-}
+/* ── Steps: each is a panel (src/shared/app.css) ───────────────────────── */
 .step-note {
   color: var(--ink-muted);
   line-height: 1.5;
@@ -33,22 +25,6 @@
   flex-wrap: wrap;
   margin: 10px 0 4px;
 }
-button.ghost {
-  font: inherit;
-  padding: 8px 14px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  background: transparent;
-  border-radius: 8px;
-  cursor: pointer;
-}
-button.ghost:hover:not(:disabled) {
-  background: var(--accent-soft);
-}
-button.ghost:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 
 /* ── Prompt / paste boxes ─────────────────────────────────────────────────── */
 .prompt-box,
@@ -61,7 +37,7 @@ button.ghost:disabled {
   color: var(--ink);
   background: var(--surface-sunk);
   border: 1px solid var(--rule-strong);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 10px;
   resize: vertical;
 }
@@ -77,29 +53,18 @@ button.ghost:disabled {
 }
 
 /* ── Verdict boxes ───────────────────────────────────────────────────────── */
-.error-box,
-.ok-box,
-.warn-box {
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin: 10px 0;
-  line-height: 1.5;
-}
-.error-box {
-  background: var(--high-soft);
-  border-left: 4px solid var(--high);
-}
 .error-box h3 {
   margin: 0 0 6px;
   color: var(--high-ink);
 }
-.ok-box {
-  background: var(--accent-soft);
-  border-left: 4px solid var(--accent);
-}
 .warn-box {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  line-height: 1.5;
   background: var(--review-soft);
-  border-left: 4px solid var(--review);
+  border: 1px solid var(--review);
   color: var(--review-ink);
 }
 .warn-list li {
@@ -110,7 +75,7 @@ button.ghost:disabled {
 .field-card {
   border: 1px solid var(--rule);
   border-left: 4px solid var(--ok);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   padding: 10px 14px;
   margin: 10px 0;
@@ -233,7 +198,7 @@ button.ghost:disabled {
 /* ── Resolve box ─────────────────────────────────────────────────────────── */
 .resolve-box {
   background: var(--surface-sunk);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 8px 12px;
   margin: 8px 0 2px;
 }
@@ -315,9 +280,9 @@ button.ghost:disabled {
   line-height: 1.5;
 }
 .colophon {
-  margin: 28px 0 40px;
+  margin: 0;
   border-top: 1px solid var(--rule);
-  padding-top: 12px;
+  padding-top: 1.5rem;
   color: var(--ink-muted);
   font-size: 0.88rem;
   line-height: 1.55;
